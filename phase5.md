@@ -88,8 +88,9 @@ Copilot が提案した変更を確認して保持し、`.vscode/mcp.json` の�
 }
 ```
 
-保存後、`.vscode/mcp.json` 上に表示される **「起動」(Start)** を選択します。サーバーの信頼確認が表示された場合は、接続先を確認してから許可してください。設定上の状態表示が **「実行中」(Running)** に変わったことを確認します。
+保存後、`.vscode/mcp.json` 上に **「起動」(Start)** が表示される場合は、それを選択します。VS Code のバージョンによって表示されない場合は、コマンドパレット（`Ctrl+Shift+P` / macOS は `⇧⌘P`）で **MCP: List Servers** を実行し、`microsoft-learn` を選んで **Start Server** を選択してください。既に起動済みの場合は、起動操作は不要です。サーバーの信頼確認が表示された場合は、接続先を確認してから許可してください。一覧や設定上の状態表示で **「実行中」(Running)** を確認します。
 
+次の画像は、設定ファイル上に「起動」が表示される場合の例です。
 ![VS Code で Microsoft Learn MCP Server の「起動」を選択する](./assets/mcp-server-start.png)
 
 **Copilot の動き**
@@ -164,7 +165,7 @@ Microsoft Learn MCP は公開ドキュメントを検索・取得する読み取
 ## ✅ チェックポイント
 
 - [ ] MCP 設定前に質問し、学習済み知識による参考回答と現在の状況として確認できない点を区別して確認した
-- [ ] `.vscode/mcp.json` に Microsoft Learn MCP Server を設定し、「起動」を押して状態が「実行中」になることを確認した
+- [ ] `.vscode/mcp.json` に Microsoft Learn MCP Server を設定し、状態が「実行中」になることを確認した
 - [ ] 同じ質問を設定後にも行い、Learn MCP のツール実行履歴・情報の取得日・公式ページ URL を確認した
 - [ ] MCP のツール説明や出力を含むセキュリティリスクを理解し、第三者製サーバーの提供元・権限・更新を確認する理由を説明できる
 
@@ -174,7 +175,8 @@ Microsoft Learn MCP は公開ドキュメントを検索・取得する読み取
 
 | 症状 | 対処 |
 | ------ | ------ |
-| MCP サーバーが一覧に出ない | `.vscode/mcp.json` の JSON 構文、トップレベルの `servers` キー、URL を確認します。VS Code の **拡張機能**ビュー（`Ctrl+Shift+X` / macOS は `⇧⌘X`）を開き、MCP サーバーの一覧で `microsoft-learn` の状態を確認してください。表示されていない場合は設定ファイルを保存し直し、停止中の場合は一覧から起動または再起動します |
+| MCP サーバーが一覧に出ない | [README の階層確認](README.md#c-開いているフォルダーの階層を確認する)を参照し、ハンズオンのルートを開き直します。その直下の `.vscode/mcp.json` の JSON 構文、トップレベルの `servers` キー、URL、選択中のハーネスを確認し、保存後に **MCP: List Servers** で `microsoft-learn` の状態を確認してください |
+| `mcp.json` に「起動」が表示されない | コマンドパレットの **MCP: List Servers** から `microsoft-learn` を選択し、必要に応じて起動または再起動します |
 | サーバーは起動しているがツールが出ない | VS Code のチャットツール一覧を更新し、サーバーの起動ログと信頼状態を確認する |
 | 質問しても MCP ツールが呼ばれない | Agent モードで、Microsoft Learn MCP の検索・取得ツールを使うよう明示して再度質問する |
 | 接続できない | ネットワークやプロキシで `https://learn.microsoft.com` への接続が許可されているか確認する |
